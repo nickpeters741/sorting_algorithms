@@ -42,8 +42,7 @@ void insertion_sort_list(listint_t **list)
 
 	curr = *list;
 
-	if (list == NULL || (curr == NULL ||
-			     (curr->next == NULL || curr->next->next == NULL)))
+	if (list == NULL || curr == NULL || curr->next == NULL)
 		return;
 
 	while (curr->next != NULL)
