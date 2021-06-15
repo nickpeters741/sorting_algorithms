@@ -2,6 +2,8 @@
 
 /**
  * bubble_sort - Sort an array of integers in ascending order using Bubble sort
+ * @array: pointer to array to be sorted
+ * @size: size of the array
  *
  * Return: no return value (void)
  */
@@ -9,6 +11,9 @@ void bubble_sort(int *array, size_t size)
 {
 	int temp = 0, swapped = 0;
 	size_t count = 0;
+
+	if (size < 2)
+		return;
 
 	while (1)
 	{
