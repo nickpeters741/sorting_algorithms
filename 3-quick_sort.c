@@ -11,7 +11,7 @@
  */
 int partition(int *array, int low, int hi, size_t size)
 {
-	int pivot = array[hi], temp = 0, i = low, j = 0;
+	int pivot = array[hi], temp = 0, i = low, j;
 	(void)size;
 
 	for (j = low; j <= hi; j++)
@@ -55,8 +55,7 @@ void q_sort(int *array, int low, int hi, size_t size)
 	{
 		part = partition(array, low, hi, size);
 		q_sort(array, low, part - 1, size);
-		q_sort(array, part + 1, (size - part), size);
-/*		print_array(array, size); */
+		q_sort(array, part + 1, hi, size);
 	}
 }
 
@@ -71,12 +70,14 @@ void quick_sort(int *array, size_t size)
 {
 	int part = 0, low = 0, hi = size - 1;
 
+	if (size < 2)
+		return;
+
 	if (low < hi)
 	{
 		part = partition(array, low, hi, size);
 		hi = part - 1;
 		q_sort(array, low, hi, size);
-		q_sort(array, part + 1, (size - part - 1), size);
-/*		print_array(array, size); */
+		q_sort(array, part + 1, (size - 1), size);
 	}
 }
