@@ -25,11 +25,11 @@ void shell_sort(int *array, size_t size)
 			for (j = i; j > 0 && array[j] < array[j - gap]; j -= gap)
 			{
 				temp = array[j];
-		       		array[j] = array[j - gap];
-	       			array[j - gap] = temp;
+				array[j] = array[j - gap];
+				array[j - gap] = temp;
 			}
 		}
-		gap = (gap - 1) / 3;
+		gap = gap / 3;
 		print_array(array, size);
 	}
 }
