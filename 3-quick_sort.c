@@ -67,16 +67,8 @@ void q_sort(int *array, int low, int hi, size_t size)
  */
 void quick_sort(int *array, size_t size)
 {
-	int part = 0, low = 0, hi = size - 1;
-
 	if (size < 2)
 		return;
 
-	if (low < hi)
-	{
-		part = partition(array, low, hi, size);
-		hi = part - 1;
-		q_sort(array, low, hi, size);
-		q_sort(array, part + 1, (size - 1), size);
-	}
+	q_sort(array, 0, size - 1, size);
 }
