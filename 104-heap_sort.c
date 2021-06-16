@@ -42,17 +42,17 @@ void sift_down(int *array, int start, int end, size_t size)
 		swap = root;
 
 /*
-Check whether parent is less than left child
+ * Check whether parent is less than left child
 */
 		if (array[swap] < array[l_child])
 			swap = l_child;
 /*
-Check whether parent is less than right child
+ * Check whether parent is less than right child
 */
 		if (r_child <= end && array[swap] < array[r_child])
 			swap = r_child;
 /*
-Perform swap if needed, else return
+ * Perform swap if needed, else return
 */
 		if (swap == root)
 		{
@@ -79,8 +79,8 @@ Perform swap if needed, else return
 void heapify(int *array, size_t size)
 {
 /*
-start is assigned the index in array of the last parent node i.e. the parent
-of the last element in the array
+ * start is assigned the index in array of the last parent node i.e. the parent
+ * of the last element in the array
 */
 	int start = parent(size - 1);
 
@@ -103,19 +103,19 @@ void heap_sort(int *array, size_t size)
 	int end = size - 1, temp;
 
 /*
-Build the heap in array so that largest value is at the root
+ * Build the heap in array so that largest value is at the root
 */
 	heapify(array, size);
 
 /*
-In the following loop, array[0:end] is a heap and
-array[end:size] is in sorted order
+ * In the following loop, array[0:end] is a heap and
+ * array[end:size] is in sorted order
 */
 	while (end > 0)
 	{
 /*
-array[0] is the root and is the largest element.
-swap array[end] and array[0]
+ * array[0] is the root and is the largest element.
+ * swap array[end] and array[0]
  */
 		temp = array[end];
 		array[end] = array[0];
@@ -123,8 +123,8 @@ swap array[end] and array[0]
 		print_array(array, size);
 		end -= 1;
 /*
-after each swap, heap size reduces so reduce end by 1
-swap ruined the heap property, soo restore it suing siftdown function
+ * after each swap, heap size reduces so reduce end by 1
+ * swap ruined the heap property, soo restore it suing siftdown function
 */
 		sift_down(array, 0, end, size);
 	}
