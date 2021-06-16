@@ -38,26 +38,22 @@ void swap_node(listint_t **list, listint_t *x, listint_t *y)
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *idx = NULL, *curr = NULL;
-	int swap = 0;
 
 	curr = *list;
-
 	if (list == NULL || curr == NULL || curr->next == NULL)
 		return;
 
-	while (curr->next != NULL)
+	while (curr != NULL)
 	{
-		swap = 0;
-		if (curr->n > curr->next->n)
+		idx = curr->prev;
+
+		while (idx != NULL && idx->n > curr->n)
 		{
-			idx = curr->next;
-			swap_node(list, curr, idx);
-			swap = 1;
+			swap_node(list, idx, curr);
 			print_list(*list);
+			idx = curr->prev;
 		}
-		if (swap == 1)
-			curr = *list;
-		else
-			curr = curr->next;
+
+		curr = curr->next;
 	}
 }
